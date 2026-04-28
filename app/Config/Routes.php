@@ -14,3 +14,6 @@ $routes->get('logout', 'AuthController::logout');
 
 $routes->get('produk', 'ProdukController::index', ['filter' => 'auth']);
 $routes->get('keranjang', 'TransaksiController::index', ['filter' => 'auth']);
+
+// Tambahkan baris ini:
+$routes->get('profile', 'Profile::index', ['filter' => 'auth']);
