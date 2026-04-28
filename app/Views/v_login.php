@@ -1,5 +1,5 @@
 <?= $this->extend('layout_clear') ?>
-<?= $this->section('content') ?>
+<?= $this->section('main') ?>
 <?php
 $username = [
     'name' => 'username',
@@ -34,40 +34,40 @@ $password = [
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <?php
-if (session()->getFlashData('failed')) {
-?>
-    <div class="col-12 alert alert-danger" role="alert">
-        <hr>
-        <p class="mb-0">
-            <?= session()->getFlashData('failed') ?>
-        </p>
-    </div>
-<?php
-}
-?>
+                <?php
+                if (session()->getFlashData('failed')) {
+                ?>
+                    <div class="col-12 alert alert-danger" role="alert">
+                        <hr>
+                        <p class="mb-0">
+                            <?= session()->getFlashData('failed') ?>
+                        </p>
+                    </div>
+                <?php
+                }
+                ?>       
 
-<?= form_open('login', 'class = "row g-3 needs-validation"') ?>
+                <?= form_open('login', 'class = "row g-3 needs-validation"') ?>
 
-<div class="col-12">
-    <label for="yourUsername" class="form-label">Username</label>
-    <div class="input-group has-validation">
-        <span class="input-group-text" id="inputGroupPrepend">@</span>
-        <?= form_input($username) ?>
-        <div class="invalid-feedback">Please enter your username.</div>
-    </div>
-</div>
+                <div class="col-12">
+                    <label for="yourUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <?= form_input($username) ?>
+                        <div class="invalid-feedback">Please enter your username.</div>
+                    </div>
+                </div>
 
-<div class="col-12">
-    <label for="yourPassword" class="form-label">Password</label>
-		    <?= form_password($password) ?>
-    <div class="invalid-feedback">Please enter your password!</div>
-</div>
-<div class="col-12">
-    <?= form_submit('submit', 'Login', ['class' => 'btn btn-primary w-100']) ?>
-</div>
+                <div class="col-12">
+                    <label for="yourPassword" class="form-label">Password</label>
+                            <?= form_password($password) ?>
+                    <div class="invalid-feedback">Please enter your password!</div>
+                </div>
+                <div class="col-12">
+                    <?= form_submit('submit', 'Login', ['class' => 'btn btn-primary w-100']) ?>
+                </div>
 
-<?= form_close() ?>
+                <?= form_close() ?>                  
 
                 </div>
               </div>
@@ -85,5 +85,4 @@ if (session()->getFlashData('failed')) {
         </div>
 
       </section>
-
       <?= $this->endSection() ?>
