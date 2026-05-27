@@ -1,44 +1,22 @@
 <?php
+$nama = $_POST['nama'];
+$email = $_POST['email'];
 
-namespace Config;
-
-use CodeIgniter\Config\BaseConfig;
-use CodeIgniter\Validation\StrictRules\CreditCardRules;
-use CodeIgniter\Validation\StrictRules\FileRules;
-use CodeIgniter\Validation\StrictRules\FormatRules;
-use CodeIgniter\Validation\StrictRules\Rules;
-
-class Validation extends BaseConfig
-{
-    // --------------------------------------------------------------------
-    // Setup
-    // --------------------------------------------------------------------
-
-    /**
-     * Stores the classes that contain the
-     * rules that are available.
-     *
-     * @var list<string>
-     */
-    public array $ruleSets = [
-        Rules::class,
-        FormatRules::class,
-        FileRules::class,
-        CreditCardRules::class,
-    ];
-
-    /**
-     * Specifies the views that are used to display the
-     * errors.
-     *
-     * @var array<string, string>
-     */
-    public array $templates = [
-        'list'   => 'CodeIgniter\Validation\Views\list',
-        'single' => 'CodeIgniter\Validation\Views\single',
-    ];
-
-    // --------------------------------------------------------------------
-    // Rules
-    // --------------------------------------------------------------------
+if (empty($nama)) {
+    $error_nama = "Nama harus diisi.";
+} else {
+    $error_nama = "";
 }
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $error_email = "Format email tidak valid.";
+} else {
+    $error_email = "";
+}
+
+if ($error_nama || $error_email) {
+    // Tampilkan pesan kesalahan
+} else {
+    // Proses data form
+}
+?>
