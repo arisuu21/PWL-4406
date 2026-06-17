@@ -18,8 +18,8 @@
         </li><!-- End Keranjang Nav --> 
         
         <?php
-if (session()->get('role') == 'admin') {
-?>
+        if (session()->get('role') == 'admin') {
+        ?>
         <li class="nav-item">
             <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="produk">
                 <i class="bi bi-receipt"></i>
@@ -27,8 +27,16 @@ if (session()->get('role') == 'admin') {
             </a>
         </li><!-- End Produk Nav --> 
         <?php
-}
-?>
+        }
+        ?>
+
+        <li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'profil') ? "" : "collapsed" ?>" href="profil">
+                <i class="bi bi-person-fill"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Keranjang Nav --> 
+
     </ul>
 
 </aside><!-- End Sidebar-->

@@ -15,7 +15,6 @@ class Auth implements FilterInterface
     return redirect()->to(site_url('login'));
 }
     }
-    
 
     //--------------------------------------------------------------------
 

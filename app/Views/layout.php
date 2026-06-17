@@ -1,9 +1,3 @@
-<?php
-$hlm = "Home";
-if(uri_string()!=""){
-  $hlm = ucwords(uri_string());
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +5,7 @@ if(uri_string()!=""){
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>- Toko - <?php echo $hlm ?></title>
+  <title>Tables / Data - NiceAdmin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -46,9 +40,9 @@ if(uri_string()!=""){
 
 <body>
 
- <?= $this->include('components/header') ?>
+<?= $this->include('components/header') ?>
 
-  <?= $this->include('components/sidebar') ?>
+<?= $this->include('components/sidebar') ?>
 
   <main id="main" class="main">
 
@@ -56,15 +50,10 @@ if(uri_string()!=""){
       <h1>Data Tables</h1>
       <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">Home</li>
-            <?php
-                if($hlm!="Home"){
-                ?>
-                <li class="breadcrumb-item"><?php echo $hlm?></li> 
-                <?php
-                }
-            ?> 
-            </ol>
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Tables</li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
       </nav>
     </div><!-- End Page Title -->
 
@@ -74,8 +63,9 @@ if(uri_string()!=""){
 
           <div class="card">
             <div class="card-body">
-            <h5 class="card-title"><?php echo $hlm?></h5>
-            <?= $this->renderSection('content') ?>
+              <h5 class="card-title">Datatables</h5>
+<?= $this->renderSection('content') ?>
+
             </div>
           </div>
 
@@ -88,6 +78,12 @@ if(uri_string()!=""){
   <?= $this->include('components/footer') ?>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 
   <!-- Vendor JS Files -->
   <script src="<?= base_url()?>NiceAdmin/assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -99,6 +95,8 @@ if(uri_string()!=""){
   <script src="<?= base_url()?>NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="<?= base_url()?>NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
 
+  <?= $this->renderSection('script') ?> 
+  
   <!-- Template Main JS File -->
   <script src="<?= base_url()?>NiceAdmin/assets/js/main.js"></script>
 

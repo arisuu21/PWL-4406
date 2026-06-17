@@ -8,15 +8,15 @@ class Home extends BaseController
 {
     protected $productModel;
 
-    function __construct()
-    {
-        $this->productModel = new ProductModel();
-    } 
-
+    function __construct(){
+    helper(['number', 'form']);
+    $this->productModel = new ProductModel();
+}
     public function index(): string
     {
-        return view('v_home', [
-            'products' => $this->productModel->findAll()
-        ]);
+        $products = $this->productModel->findAll();
+        $data['products'] = $products;
+
+        return view('v_home', $data);
     }
 }
