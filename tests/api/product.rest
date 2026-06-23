@@ -1,0 +1,36 @@
+### index
+GET http://localhost:8080/api/products
+Accept: application/json
+Authorization: Bearer my-secret-token
+
+### show
+GET http://localhost:8080/api/products/3
+Authorization: Bearer my-secret-token
+
+### create
+POST http://localhost:8080/api/products
+Authorization: Bearer my-secret-token
+Content-Type: application/json
+
+{
+  "nama": "Yoga Slim 7i Aura Edition",
+  "harga": 15000000,
+  "jumlah": 10
+}
+
+### update all field
+PUT http://localhost:8080/api/products/11
+Authorization: Bearer my-secret-token
+Content-Type: application/json
+
+{
+  "nama": "Yoga Slim 7i Aura Edition",
+  "harga": 25000000,
+  "jumlah": 20
+}
+
+### delete
+DELETE http://localhost:8080/api/products/11
+Authorization: Bearer my-secret-token
+
+
